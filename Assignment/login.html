@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | GWSC</title>
+    <link rel="stylesheet" href="style2.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <style>
+      * {
+        box-sizing: border-box
+      }
+      body {
+        font-family: Verdana, sans-serif;
+        margin: 0
+      }
+      .mySlides {
+        display: none
+      }
+      img {
+        vertical-align: middle;
+      }
+      .slideshow-container {
+        max-width: auto;
+        position: relative;
+        margin: auto;
+      }
+      /* Next & previous buttons */
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+      }
+      /* Position the "next button" to the right */
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+      /* On hover, add a black background color with a little bit see-through */
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      /* Caption text */
+      .text {
+        color: #ffffff;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+      }
+      /* Number text (1/3 etc) */
+      .numbertext {
+        color: #ffffff;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+      }
+      /* The dots/bullets/indicators */
+      .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #999999;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+      .active,
+      .dot:hover {
+        background-color: #111111;
+      }
+      /* Fading animation */
+      .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+      @-webkit-keyframes fade {
+        from {
+          opacity: .4
+        }
+        to {
+          opacity: 1
+        }
+      }
+      @keyframes fade {
+        from {
+          opacity: .4
+        }
+        to {
+          opacity: 1
+        }
+      }
+      /* On smaller screens, decrease text size */
+      @media only screen and (max-width: 300px) {
+        .prev,
+        .next,
+        .text {
+          font-size: 11px
+        }
+      }
+    </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="content">
+      
+<div class="logo"><img src="images/logo.svg" alt=""><a href="">GWSC </a></div>
+      <ul class="menu-list">
+        <div class="icon cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
+        <li><a href="display.php">Home</a></li>
+        <li><a href="display.php">Information</a></li>
+        <li><a href="Contact Us.php">Contact</a></li>
+        <li><a href="AllFacilitiesList.php">Services</a></li>
+        <li><a href="user_reg.php">Register</a></li>
+       
+      </ul>
+      <div class="icon menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <div class="banner-log-in">
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <!-- <div class="numbertext">1 / 3</div> -->
+        <img src="images/fire.jpg" style="width:100%">
+        <div class="text">Fire Camp</div>
+      </div>
+      <div class="mySlides fade">
+        <!-- <div class="numbertext">2 / 3</div> -->
+        <img src="images/cover2.1.jpg" style="width:100%">
+        <div class="text">New York, USA</div>
+      </div>
+      <div class="mySlides fade">
+        <!-- <div class="numbertext">3/ 3</div> -->
+        <img src="images/slide2.jpg" style="width:100%">
+        <div class="text">London, Ebgland</div>
+      </div>
+      
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(0)"></span>
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+    </div>
+  </div>
+  <div class="abt">
+ <div class="content">
+      <div class="title">Welcome to Global Wile Swimming &<br> Camping Website</div>
+      <br><br>
+      <form action="login.php" method="POST">
+
+        <input type="text" name="UserName" class="form-text" placeholder="User name"><br><br>
+        <input type="password" name="password" class="form-text" placeholder="Password"><br><br>
+    
+        <input type="submit" class="btn"name="submit" value="Login" />
+        <input type="reset" class="btn"name="reset" value="Clear" />
+      </form>
+      You don't have any account please here to <a href="user_reg.php">Register</a>
+    </div>
+  </div>
+    <script>
+      let slideIndex = 0;
+      let timeoutId = null;
+      const slides = document.getElementsByClassName("mySlides");
+      const dots = document.getElementsByClassName("dot");
+      
+      showSlides();
+      function currentSlide(index) {
+           slideIndex = index;
+           showSlides();
+      }
+     function plusSlides(step) {
+        
+        if(step < 0) {
+            slideIndex -= 2;
+            
+            if(slideIndex < 0) {
+              slideIndex = slides.length - 1;
+            }
+        }
+        
+        showSlides();
+     }
+      function showSlides() {
+        for(let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+          dots[i].classList.remove('active');
+        }
+        slideIndex++;
+        if(slideIndex > slides.length) {
+          slideIndex = 1
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].classList.add('active');
+         if(timeoutId) {
+            clearTimeout(timeoutId);
+         }
+        timeoutId = setTimeout(showSlides, 3000); // Change image every 3 seconds
+      } 
+    const body = document.querySelector("body");
+    const navbar = document.querySelector(".navbar");
+    const menu = document.querySelector(".menu-list");
+    const menuBtn = document.querySelector(".menu-btn");
+    const cancelBtn = document.querySelector(".cancel-btn");
+    menuBtn.onclick = ()=>{
+      menu.classList.add("active");
+      menuBtn.classList.add("hide");
+      cancelBtn.classList.add("show");
+      body.classList.add("disabledScroll");
+    }
+    
+    cancelBtn.onclick = ()=>{
+      menu.classList.remove("active");
+      menuBtn.classList.remove("hide");
+      cancelBtn.classList.remove("show");
+      body.classList.remove("disabledScroll");
+    }
+
+    window.onscroll = ()=>{
+      this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+    }
+  </script>
+  <br><br>
+  
+	<div>
+    <a href="Rss_Feed.php">
+      <img src="images/rss/rss_logo.png" alt="Rss Logo" width="100">
+    </a>
+   </div>
+  <div>
+    <input type="checkbox" id="close_cookie"></input>
+    <div id="cookie_consent_popup">
+      <h1>Cookies</h1>
+      <label for="close_cookie" id="close_cookie_box">X</label>
+      <p>We use cookies to store preferences, analyse traffic and provide personalized ads. Read more about the used
+        cookies and disable them on our <a href="cookies" title="Cookie Policy">Cookie page</a>. By clicking 'OK', 'X'
+        or continuing using our site, you consent to the use of cookies unless you disabled them.
+      <p>
+
+        <label for="close_cookie" id="ok_cookie_box">OK</label>
+    </div>
+  </div>
+
+  <footer class="grid-container-3">
+    <div class="container">
+      <div>
+        <h6 class="footer-category">Information</h6>
+        <div>
+          <a href="" class="footer-category-item hover-underline-animation">Camp and Hike</a><br>
+          <a href="" class="footer-category-item hover-underline-animation">Climbing</a><br>
+          <a href="" class="footer-category-item hover-underline-animation">Footwear</a><br>
+
+        </div>
+      </div>
+      <div>
+        <h6 class="footer-category">Company</h6>
+        <div>
+          <a href="" class="footer-category-item hover-underline-animation">About</a><br>
+          <a href="" class="footer-category-item hover-underline-animation">Blog</a><br>
+          <a href="" class="footer-category-item hover-underline-animation">Events</a><br>
+          <a href="" class="footer-category-item hover-underline-animation">Promos</a><br>
+
+        </div>
+      </div>
+      <div>
+        <h6 class="footer-category">Support</h6>
+        <div>
+          <a href="" class="footer-category-item hover-underline-animation">My Account</a><br>
+          <a href="" class="footer-category-item hover-underline-animation">Returns</a><br>
+          <a href="" class="footer-category-item hover-underline-animation">Payment Methods</a><br>
+          <a href="" class="footer-category-item hover-underline-animation">FAQs</a><br>
+        </div>
+      </div>
+      <div>
+        <h6 class="footer-category">Contact</h6>
+        <div>
+          <a href="mailto:contact@rcc.com" target="_blank" class="footer-category-item hover-underline-animation">Email
+            Us</a><br>
+          <a href="" class="footer-category-item hover-underline-animation">Live Chat</a><br>
+
+        </div>
+      </div>
+      <div>
+        <h6 class="footer-category">Social</h6>
+        <div>
+          <a href="https://www.facebook.com/" target="_blank"
+            class="footer-category-item hover-underline-animation">Facebook</a><br>
+          <a href="https://www.instagram.com/" target="_blank"
+            class="footer-category-item hover-underline-animation">Instagram</a><br>
+          <a href="https://twitter.com/" target="_blank"
+            class="footer-category-item hover-underline-animation">Twitter</a><br>
+        </div>
+      </div>
+    </div>
+    <div class="notice">
+      <p>&copy; Copyright 2022, Camping Company</p>
+    </div>
+  </footer>
+</body>
+
+</html>
